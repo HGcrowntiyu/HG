@@ -1,0 +1,64 @@
+一些常见的电子商务代码示例：
+
+前端代码
+电子商务前端代码通常使用HTML、CSS和JavaScript编写，以创建用户界面和实现交互。例如，以下是一个简单的HTML和CSS代码示例，用于创建一个商品列表：
+<div class="product">
+  <img src="product-image.jpg">
+  <h3>Product Name</h3>
+  <p>Description of the product.</p>
+  <button>Add to cart</button>
+</div>
+.product {
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.product img {
+  max-width: 100%;
+}
+.product h3 {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+.product p {
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+.product button {
+  display: block;
+  margin: 10px auto 0;
+  padding: 5px 10px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+2. 后端代码
+电子商务后端代码通常使用一种或多种编程语言编写，以处理用户的请求并提供数据。例如，以下是一个简单的Python Flask后端代码示例，用于处理用户的登录请求：
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    # code to validate username and password
+    if username == 'admin' and password == 'password':
+        return jsonify({'success': True})
+    else:
+        return jsonify({'success': False, 'message': 'Invalid username or password'})
+
+if __name__ == '__main__':
+    app.run()
+3. 数据库代码
+电子商务通常需要使用数据库存储和检索商品信息、订单信息、用户信息等等。例如，以下是一个简单的SQL语句，用于创建一个商品表格：
+CREATE TABLE products (
+  id INT PRIMARY KEY,
+  name VARCHAR(255),
+  description TEXT,
+  price DECIMAL(10, 2)
+);
+请注意，这只是一些电子商务代码的简单示例，具体代码需要根据项目需求和技术栈进行调整。
