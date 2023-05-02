@@ -1,0 +1,25 @@
+In JavaScript, you can make an HTTP request using the built-in XMLHttpRequest object or the newer fetch() API.
+
+Here's an example of how to make a GET request using XMLHttpRequest:
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://example.com/api/data');
+xhr.onload = () => {
+  if (xhr.status === 200) {
+    console.log(xhr.responseText);
+  } else {
+    console.error('Request failed.  Returned status of ' + xhr.status);
+  }
+};
+xhr.send();
+And here's an example of how to make a GET request using fetch():
+fetch('https://example.com/api/data')
+  .then(response => {
+    if (response.ok) {
+      return response.text();
+    }
+    throw new Error('Network response was not ok');
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+You can also use the fetch() API to make other types of requests, such as POST and PUT requests, by passing in an additional init object with the method and body properties set accordingly.
