@@ -1,0 +1,28 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+
+try:
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "myDynamicElement"))
+    )
+except TimeoutException:
+    print("Timed out waiting for element")
+    This is a Python code block using the Selenium WebDriver module to wait for the presence of an element with a specific ID on a web page.
+
+Here's how it works:
+
+The try block attempts to locate an element with the ID "myDynamicElement" using the WebDriverWait function from the Selenium WebDriver module.
+The WebDriverWait function waits up to 10 seconds for the element to be present on the page. If the element is found within that time, the function returns the element.
+The EC.presence_of_element_located method is used to specify the condition that must be met for the function to return the element. In this case, the condition is that the element must be present on the page (i.e., it must exist in the DOM).
+If the element is not found within 10 seconds, the except block is executed, and the message "Timed out waiting for element" is printed to the console using the print() function.
+This code block is useful for scenarios where you need to interact with an element on a web page that may take some time to load. By waiting for the presence of the element before attempting to interact with it, you can avoid errors that might occur if the element is not yet available on the page.This is a Python code block using the Selenium WebDriver module to wait for the presence of an element with a specific ID on a web page.
+
+Here's how it works:
+
+The try block attempts to locate an element with the ID "myDynamicElement" using the WebDriverWait function from the Selenium WebDriver module.
+The WebDriverWait function waits up to 10 seconds for the element to be present on the page. If the element is found within that time, the function returns the element.
+The EC.presence_of_element_located method is used to specify the condition that must be met for the function to return the element. In this case, the condition is that the element must be present on the page (i.e., it must exist in the DOM).
+If the element is not found within 10 seconds, the except block is executed, and the message "Timed out waiting for element" is printed to the console using the print() function.
+This code block is useful for scenarios where you need to interact with an element on a web page that may take some time to load. By waiting for the presence of the element before attempting to interact with it, you can avoid errors that might occur if the element is not yet available on the page.
