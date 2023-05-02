@@ -1,0 +1,23 @@
+Để lấy một bài viết ngẫu nhiên từ một danh sách các bài viết, chúng ta có thể sử dụng hàm rand() để chọn ngẫu nhiên một vị trí trong danh sách. Dưới đây là một ví dụ lấy ngẫu nhiên một bài viết trong WordPress:
+$args = array(
+    'post_type' => 'post',
+    'orderby' => 'rand',
+    'posts_per_page' => 1
+);
+
+$query = new WP_Query( $args );
+
+if ( $query->have_posts() ) {
+    while ( $query->have_posts() ) {
+        $query->the_post();
+        // Do something with the post here
+    }
+}
+
+wp_reset_postdata();
+Trong đó:
+
+post_type: là kiểu bài viết mà bạn muốn lấy ngẫu nhiên. Ở đây, chúng ta đang lấy ngẫu nhiên một bài viết thường (post), nhưng bạn cũng có thể thay đổi thành kiểu bài viết khác như page, attachment, hoặc custom post type.
+orderby: là cách sắp xếp bài viết. Trong trường hợp này, chúng ta đang sử dụng rand để sắp xếp ngẫu nhiên các bài viết.
+posts_per_page: là số lượng bài viết muốn lấy. Trong trường hợp này, chúng ta chỉ lấy một bài viết.
+Lưu ý: Các tham số và cách lấy bài viết ngẫu nhiên có thể khác nhau tùy theo nền tảng CMS và các plugin hay thư viện hỗ trợ. Bạn cần tham khảo tài liệu của nền tảng CMS và các plugin hay thư viện tương ứng để biết thêm chi tiết.
