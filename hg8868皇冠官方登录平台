@@ -1,0 +1,21 @@
+Để lấy 10 comment mới nhất trong WordPress, chúng ta có thể sử dụng hàm get_comments() để truy vấn danh sách các comment, và sử dụng tham số number để giới hạn số lượng comment trả về. Dưới đây là một ví dụ lấy 10 comment mới nhất:
+$args = array(
+    'number' => 10,
+    'status' => 'approve',
+    'order' => 'DESC',
+    'orderby' => 'comment_date'
+);
+
+$comments = get_comments( $args );
+
+foreach ( $comments as $comment ) {
+    // Do something with the comment here
+}
+
+Trong đó:
+
+number: là số lượng comment muốn lấy. Trong trường hợp này, chúng ta muốn lấy 10 comment mới nhất.
+status: là trạng thái của comment muốn lấy. Trong trường hợp này, chúng ta chỉ lấy comment đã được approve.
+order: là thứ tự sắp xếp của comment. Trong trường hợp này, chúng ta đang sắp xếp theo thứ tự giảm dần (DESC).
+orderby: là trường để sắp xếp comment. Trong trường hợp này, chúng ta đang sắp xếp theo ngày tạo (comment_date).
+Lưu ý: Các tham số và cách lấy comment có thể khác nhau tùy theo nền tảng CMS và các plugin hay thư viện hỗ trợ. Bạn cần tham khảo tài liệu của nền tảng CMS và các plugin hay thư viện tương ứng để biết thêm chi tiết.
